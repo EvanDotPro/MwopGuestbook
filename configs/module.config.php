@@ -9,13 +9,13 @@ $production = array(
         ),
 
         'preferences' => array(
-            'Zf2Mvc\Router\RouteStack' => 'Zf2Mvc\Router\SimpleRouteStack',
+            'Zend\Mvc\Router\RouteStack' => 'Zend\Mvc\Router\SimpleRouteStack',
         ),
 
         'Guestbook\Controller\GuestbookController' => array(
             'parameters' => array(
                 'mapper' => 'Guestbook\Model\GuestbookMapper',
-                'router' => 'Zf2Mvc\Router\SimpleRouteStack',
+                'router' => 'Zend\Mvc\Router\SimpleRouteStack',
             ),
         ),
 
