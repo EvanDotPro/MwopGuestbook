@@ -2,40 +2,33 @@
 
 namespace Guestbook;
 
-use InvalidArgumentException,
-    Zend\Config\Config;
+use Zend\Config\Config,
+    Zend\Module\Manager,
+    Zend\Loader\AutoloaderFactory;
 
 class Module
 {
-    public function init()
+    public function init(Manager $moduleManager)
     {
         $this->initAutoloader();
     }
 
     public function initAutoloader()
     {
-        require __DIR__ . '/autoload_register.php';
+        AutoloaderFactory::factory(array(
+            'Zend\Loader\ClassMapAutoloader' => array(
+                __DIR__ . '/autoload_classmap.php',
+            ),
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
+                    __NAMESPACE__ => __DIR__,
+                ),
+            ),
+        ));
     }
 
     public function getConfig($env = null)
     {
-        $config = new Config(include __DIR__ . '/configs/module.config.php');
-        if (null === $env) {
-            return $config;
-        }
-        if (!isset($config->{$env})) {
-            throw new InvalidArgumentException(sprintf(
-                'Unrecognized environment "%s" provided to "%s"',
-                $env,
-                __METHOD__
-            ));
-        }
-
-        return $config->{$env};
-    }
-
-    public function getClassmap()
-    {
-        return include __DIR__ . '/classmap.php';
+        return new Config(include __DIR__ . '/configs/module.config.php');
     }
 }

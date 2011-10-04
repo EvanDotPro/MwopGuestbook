@@ -1,9 +1,9 @@
 <?php
-$production = array(
+return array(
     'di' => array( 'instance' => array(
         'alias' => array(
             'guestbook'        => 'Guestbook\Controller\GuestbookController',
-            'guestbook-db'     => 'Zend\Db\Adapter\Pdo\Sqlite',
+            'guestbook-db'     => 'Zend\Db\Adapter\DiPdoMysql',
             'guestbook-mapper' => 'Guestbook\Model\GuestbookMapper',
             'guestbook-table'  => 'Guestbook\Model\DbTable\Guestbook',
         ),
@@ -24,17 +24,20 @@ $production = array(
         )),
 
         'Guestbook\Model\DbTable\Guestbook' => array('parameters' => array(
-            'config' => 'Zend\Db\Adapter\Pdo\Sqlite',
+            'config' => 'guestbook-db',
         )),
 
-        'Zend\Db\Adapter\Pdo\Sqlite' => array('parameters' => array(
-            'config' => array('dbname' => __DIR__ . '/../data/guestbook.db'),
-        )),
+        'guestbook-db' => array(
+            'parameters' => array(
+                'pdo'    => 'guestbook-pdo',
+                'config' => array(),
+            ),
+        ),
 
         'Zend\View\PhpRenderer' => array('methods' => array(
             'setResolver' => array(
                 'resolver' => 'Zend\View\TemplatePathStack',
-                'options' => array(
+                'options'  => array(
                     'script_paths' => array(
                         'guestbook' => __DIR__ . '/../views',
                     ),
@@ -43,10 +46,3 @@ $production = array(
         )),
     )),
 );
-
-$staging     = $production;
-$testing     = $production;
-$development = $production;
-
-$config = compact('production', 'staging', 'testing', 'development');
-return $config;
