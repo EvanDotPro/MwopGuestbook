@@ -16,7 +16,6 @@ return array(
             'Guestbook\Controller\GuestbookController' => array(
                 'parameters' => array(
                     'mapper' => 'Guestbook\Model\GuestbookMapper',
-                    'router' => 'Zend\Mvc\Router\SimpleRouteStack',
                 ),
             ),
 
