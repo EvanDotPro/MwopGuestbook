@@ -1,5 +1,5 @@
 <?php
-namespace Guestbook\Model;
+namespace MwopGuestbook\Model;
 
 use Exception;
 

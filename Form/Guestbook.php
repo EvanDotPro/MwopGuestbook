@@ -1,6 +1,6 @@
 <?php
 
-namespace Guestbook\Form;
+namespace MwopGuestbook\Form;
 
 use Zend\Form\Form;
 

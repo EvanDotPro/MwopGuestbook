@@ -1,10 +1,10 @@
 <?php
 
-namespace Guestbook\Controller;
+namespace MwopGuestbook\Controller;
 
-use Guestbook\Form\Guestbook as GuestbookForm,
-    Guestbook\Model\Guestbook,
-    Guestbook\Model\GuestbookMapper,
+use MwopGuestbook\Form\Guestbook as GuestbookForm,
+    MwopGuestbook\Model\Guestbook,
+    MwopGuestbook\Model\GuestbookMapper,
     Zend\Mvc\Controller\ActionController;
 
 class GuestbookController extends ActionController

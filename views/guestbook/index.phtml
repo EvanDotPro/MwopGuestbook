@@ -1,10 +1,9 @@
 <?php $vars = $this->vars(); ?>
-<p><a href="<?php echo $this->url(
+<p><a href="<?php echo $this->url('default',
     array(
         'controller' => 'guestbook',
         'action'     => 'sign'
-    ),
-    array('name' => 'default')
+    )
 ) ?>">Sign Our Guestbook</a></p>
 
 Guestbook Entries: <br />

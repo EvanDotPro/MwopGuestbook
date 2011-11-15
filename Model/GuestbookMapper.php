@@ -1,6 +1,6 @@
 <?php
 
-namespace Guestbook\Model;
+namespace MwopGuestbook\Model;
 
 use Zend\Db\Table\AbstractTable,
     Exception;

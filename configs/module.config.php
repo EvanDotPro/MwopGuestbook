@@ -3,37 +3,37 @@ return array(
     'di' => array(
         'instance' => array(
             'alias' => array(
-                'guestbook'        => 'Guestbook\Controller\GuestbookController',
-                'guestbook-db'     => 'Zend\Db\Adapter\DiPdoMysql',
-                'guestbook-mapper' => 'Guestbook\Model\GuestbookMapper',
-                'guestbook-table'  => 'Guestbook\Model\DbTable\Guestbook',
+                'guestbook'            => 'MwopGuestbook\Controller\GuestbookController',
+                'mwopguestbook_db'     => 'Zend\Db\Adapter\DiPdoMysql',
+                'mwopguestbook_mapper' => 'MwopGuestbook\Model\GuestbookMapper',
+                'mwopguestbook_table'  => 'MwopGuestbook\Model\DbTable\Guestbook',
             ),
 
             'preferences' => array(
                 'Zend\Mvc\Router\RouteStack' => 'Zend\Mvc\Router\SimpleRouteStack',
             ),
 
-            'Guestbook\Controller\GuestbookController' => array(
+            'MwopGuestbook\Controller\GuestbookController' => array(
                 'parameters' => array(
-                    'mapper' => 'Guestbook\Model\GuestbookMapper',
+                    'mapper' => 'MwopGuestbook\Model\GuestbookMapper',
                 ),
             ),
 
-            'Guestbook\Model\GuestbookMapper' => array(
+            'MwopGuestbook\Model\GuestbookMapper' => array(
                 'parameters' => array(
-                    'dbTable' => 'Guestbook\Model\DbTable\Guestbook',
+                    'dbTable' => 'MwopGuestbook\Model\DbTable\Guestbook',
                 ),
             ),
 
-            'Guestbook\Model\DbTable\Guestbook' => array(
+            'MwopGuestbook\Model\DbTable\Guestbook' => array(
                 'parameters' => array(
-                    'config' => 'guestbook-db',
+                    'config' => 'mwopguestbook_db',
                 ),
             ),
 
-            'guestbook-db' => array(
+            'mwopguestbook_db' => array(
                 'parameters' => array(
-                    'pdo'    => 'guestbook-pdo',
+                    'pdo'    => 'mwopguestbook_pdo',
                     'config' => array(),
                 ),
             ),
@@ -43,7 +43,7 @@ return array(
                     'resolver' => 'Zend\View\TemplatePathStack',
                     'options'  => array(
                         'script_paths' => array(
-                            'guestbook' => __DIR__ . '/../views',
+                            'mwopguestbook' => __DIR__ . '/../views',
                         ),
                     ),
                 ),

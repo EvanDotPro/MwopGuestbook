@@ -1,5 +1,5 @@
 <?php
-namespace Guestbook\Model\DbTable;
+namespace MwopGuestbook\Model\DbTable;
 
 use Zend\Db\Table\AbstractTable;
 
