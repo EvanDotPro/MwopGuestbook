@@ -3,7 +3,7 @@ return array(
     'di' => array(
         'instance' => array(
             'alias' => array(
-                'guestbook'            => 'MwopGuestbook\Controller\GuestbookController',
+                'mwopguestbook'        => 'MwopGuestbook\Controller\GuestbookController',
                 'mwopguestbook_db'     => 'Zend\Db\Adapter\DiPdoMysql',
                 'mwopguestbook_mapper' => 'MwopGuestbook\Model\GuestbookMapper',
                 'mwopguestbook_table'  => 'MwopGuestbook\Model\DbTable\Guestbook',
@@ -44,6 +44,31 @@ return array(
                     'options'  => array(
                         'script_paths' => array(
                             'mwopguestbook' => __DIR__ . '/../views',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+    ),
+    'routes' => array(
+        'mwopguestbook' => array(
+            'type' => 'Literal',
+            'priority' => 1000,
+            'options' => array(
+                'route' => '/guestbook',
+                'defaults' => array(
+                    'controller' => 'mwopguestbook',
+                ),
+            ),
+            'may_terminate' => true,
+            'child_routes' => array(
+                'sign' => array(
+                    'type' => 'Literal',
+                    'options' => array(
+                        'route' => '/sign',
+                        'defaults' => array(
+                            'controller' => 'mwopguestbook',
+                            'action'     => 'sign',
                         ),
                     ),
                 ),

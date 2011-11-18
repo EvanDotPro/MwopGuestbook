@@ -25,10 +25,7 @@ class GuestbookController extends ActionController
             if ($form->isValid($request->post()->toArray())) {
                 $comment = new Guestbook($form->getValues());
                 $this->mapper->save($comment);
-                return $this->redirect()->toRoute('default', array(
-                    'controller' => 'guestbook',
-                    'action' => 'index',
-                ));
+                return $this->redirect()->toRoute('mwopguestbook');
             }
         }
 

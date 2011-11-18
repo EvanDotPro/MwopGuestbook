@@ -1,0 +1,6 @@
+Please use the form below to sign our guestbook!
+
+<?php
+$form = $this->form;
+$form->setAction($this->url('mwopguestbook/sign'))->setView($this);
+echo $form;
